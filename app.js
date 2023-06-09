@@ -28,13 +28,13 @@ bot.hears('animals',ctx=>{
 
 bot.action('dog', ctx=>{
     bot.telegram.sendPhoto(ctx.chat.id,{
-        source:"res/dog.jpeg"
+        source:"res/dog.jpg"
     })
 });
 
 bot.action('cat',ctx=>{
     bot.telegram.sendPhoto(ctx.chat.id,{
-        source:"res/cat.jpeg"
+        source:"res/cat.jpg"
     })
 });
 
