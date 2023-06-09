@@ -12,7 +12,7 @@ bot.command('pay',ctx=>{
     bot.telegram.sendInvoice(ctx.chat.id,{
         title:"Pay",
         description:"This is a test for paying in tgbot through chapa",
-        payload:"45676",
+        payload:`${ctx.chat.id}_${Number(new Date())}`,
         provider_token:"6141645565:TEST:6OCsr8nZ6bUi3qWCP9gt",
         currency:"ETB",
         prices:[{label:"Subscription Fee",amount:450}]
@@ -22,6 +22,11 @@ bot.command('pay',ctx=>{
         console.log(err);
     })
 });
+
+bot.on('pre_checkout_query',(ctx)=>ctx.answerPreCheckoutQuery(true));
+bot.on('successful_payment',async(ctx,next)=>{
+    await ctx.reply('Successful Payment')
+})
 
 bot.hears('animals',ctx=>{
     console.log(ctx.from);
