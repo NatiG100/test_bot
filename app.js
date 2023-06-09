@@ -16,6 +16,10 @@ bot.command('pay',ctx=>{
         provider_token:"6141645565:TEST:6OCsr8nZ6bUi3qWCP9gt",
         currency:"ETB",
         prices:[{label:"Subscription Fee",amount:450}]
+    }).then((data)=>{
+        console.log(data);
+    }).catch((err)=>{
+        console.log(err);
     })
 });
 
